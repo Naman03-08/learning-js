@@ -22,3 +22,7 @@ btn.addEventListener("click", function(){
 
     console.log("colour updated ")
 })
+
+btn.addEventListener("click", function(){
+    console.dir(KeyboardEvent)
+})
