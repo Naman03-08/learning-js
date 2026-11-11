@@ -1,19 +1,24 @@
-// let btn = document.querySelector("button")
+let btn = document.querySelector("button")
 
-// btn.onclick = function (){
-//     console.log("you have clicked the button!!!")
-//     alert("You have clicked the button ")
-// }
+function generateRandomColor(){
+    let red = Math.floor(Math.random()*255)
+    let green = Math.floor(Math.random()*255)
+    let blue = Math.floor(Math.random()*255) 
 
-// btn.onmouseenter = function (){
-//     console.log("you hovered to mouse!!")
-//     alert("you entered button")
-// }
+    let colour = (`rgb(${red}, ${green}, ${blue})`)
+    return colour;
+}
 
-// btn.addEventListener("click", dblclick)
+btn.addEventListener("click", function(){
+    let h3 = document.querySelector("h3")
+    let div = document.querySelector("div")
 
-// let dblclick = ()=>{
-//     console.log("you are in a loop!!")
-// }
-// btn.addEventListener("click", dblclick)
+    let randomcolor = generateRandomColor();
 
+    h3.innerText = randomcolor;
+
+    div.style.backgroundColor = randomcolor;
+    div.innerText = (`color changed to ${randomcolor}`)
+
+    console.log("colour updated ")
+})
