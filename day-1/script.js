@@ -26,3 +26,10 @@ btn.addEventListener("click", function(){
 btn.addEventListener("click", function(){
     console.dir(KeyboardEvent)
 })
+
+let marks = {
+    maths : 90,
+    english : 90,
+    hindi : 95,
+    avarage : (this.maths + this.english + this.hindi)
+}
