@@ -24,12 +24,17 @@ btn.addEventListener("click", function(){
 })
 
 btn.addEventListener("click", function(){
-    console.dir(KeyboardEvent)
+    
 })
 
-let marks = {
-    maths : 90,
-    english : 90,
-    hindi : 95,
-    avarage : (this.maths + this.english + this.hindi)
-}
+let input = document.querySelector("input")
+
+input.addEventListener("keyup", function(){
+    // console.log(event.code)
+    console.log(event.key)
+})
+
+let div = document.querySelector("div")
+input.addEventListener("keyup", function(){
+    div.innerText = event.key
+})
