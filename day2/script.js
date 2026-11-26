@@ -19,3 +19,23 @@
 // console.log(calculate(4, 5, multiply));
 // console.log(calculate(4, 5, subtract))
 
+// let pencil = 5;
+// let pen = 12;
+
+// console.log(`the price of pencil is ${pencil} and price of pen is ${pen}`)
+// let Name = "naman"
+// if(Name != "naman"){
+//     console.log("pandey")
+// }else{
+//     console.log("naman pandey")
+// }
+
+// let Name = "naman"
+// let last_name = "pandey"
+// if(Name == "naman"){
+//     if(last_name == "pandey"){
+//         console.log("you got it ")
+//     }
+//     console.log("thats true")
+// }
+
