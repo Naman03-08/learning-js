@@ -125,6 +125,15 @@ yourData(
       "i am saved in data base",
       () => {
         console.log("this data is also saved suscessfully");
+        yourData(
+          "last data ",
+          () => {
+            console.log("this is also saved suscessfully 'third' ");
+          },
+          () => {
+            console.log("faliure not possible to save");
+          },
+        );
       },
       () => {
         console.log("sorry internet speed is not sufficeant!!!!");
