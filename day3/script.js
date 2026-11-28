@@ -3,6 +3,9 @@
 // let div = document.querySelector("div");
 // let h3 = document.querySelector("h3");
 
+// const { rejects } = require("node:assert");
+// const { promises, resolve } = require("node:dns");
+
 // btn.addEventListener("click", NAME = ()=>{
 //    let Name =  prompt("enter youe name: ")
 //    console.log(Name)
@@ -156,40 +159,52 @@
 //   },
 // );
 
-function saveData(data, suscess, faliure) {
-  let internetSpeed = Math.floor(Math.random() * 10) + 1;
+// function saveData(data, suscess, faliure) {
+//   let internetSpeed = Math.floor(Math.random() * 10) + 1;
 
-  if (internetSpeed > 5) {
-    suscess();
-  } else {
-    faliure();
-  }
+//   if (internetSpeed > 5) {
+//     suscess();
+//   } else {
+//     faliure();
+//   }
+// }
+
+// saveData(
+//   "naman pandey",
+//   () => {
+//     (console.log("suscess: the data was saved"),
+//       saveData(
+//         "Naman 2",
+//         () => {
+//           console.log("suscess: the data was saved again");
+//           saveData(
+//             "Naman 3",
+//             () => {
+//               console.log("suscess: the data was saved again 2");
+//             },
+//             () => {
+//               console.log("Faliure: the data was not saved 2");
+//             },
+//           );
+//         },
+//         () => {
+//           console.log("faliure: the data was not saved");
+//         },
+//       ));
+//   },
+//   () => {
+//     console.log("faliure: Data not saved");
+//   },
+// );
+
+function saveyourdata(data) {
+  return new Promise((resolve, rejects) => {
+    let internetspeed = Math.floor(Math.random() * 10) + 1;
+    if (internetspeed > 5) {
+      resolve("data saved");
+    } else {
+      rejects("data not saved");
+    }
+  });
 }
-
-saveData(
-  "naman pandey",
-  () => {
-    (console.log("suscess: the data was saved"),
-      saveData(
-        "Naman 2",
-        () => {
-          console.log("suscess: the data was saved again");
-          saveData(
-            "Naman 3",
-            () => {
-              console.log("suscess: the data was saved again 2");
-            },
-            () => {
-              console.log("Faliure: the data was not saved 2");
-            },
-          );
-        },
-        () => {
-          console.log("faliure: the data was not saved");
-        },
-      ));
-  },
-  () => {
-    console.log("faliure: Data not saved");
-  },
-);
+console.log(saveyourdata("hello"));
