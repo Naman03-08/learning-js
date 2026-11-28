@@ -81,77 +81,115 @@
 
 // call-back hell ---------------------------------->
 
-let h1 = document.querySelector("h1");
+// let h1 = document.querySelector("h1");
 
-function changeColor(color, deley, nextColour) {
-  setTimeout(() => {
-    h1.style.color = color;
-    if (nextColour) nextColour();
-  }, deley);
-}
-let i = 0;
-while (i < 100) {
-  changeColor("red", 1000, () => {
-    changeColor("green", 1000, () => {
-      changeColor("yellow", 1000, () => {
-        changeColor("blue", 1000, () => {
-          changeColor("pink", 1000);
-        });
-      });
-    });
-  });
-  i++;
-}
+// function changeColor(color, deley, nextColour) {
+//   setTimeout(() => {
+//     h1.style.color = color;
+//     if (nextColour) nextColour();
+//   }, deley);
+// }
+// let i = 0;
+// while (i < 100) {
+//   changeColor("red", 1000, () => {
+//     changeColor("green", 1000, () => {
+//       changeColor("yellow", 1000, () => {
+//         changeColor("blue", 1000, () => {
+//           changeColor("pink", 1000);
+//         });
+//       });
+//     });
+//   });
+//   i++;
+// }
 
-for (let i = 0; i < 10; i++) {
-  console.log("hello");
-}
+// for (let i = 0; i < 10; i++) {
+//   console.log("hello");
+// }
 
-function yourData(data, suscess, faliure) {
+// function yourData(data, suscess, faliure) {
+//   let internetSpeed = Math.floor(Math.random() * 10) + 1;
+
+//   if (internetSpeed >= 5) {
+//     suscess();
+//   } else {
+//     faliure();
+//   }
+// }
+
+// yourData(
+//   "naman pandey",
+//   () => {
+//     console.log("data was saved");
+//     yourData(
+//       "i am saved in data base",
+//       () => {
+//         console.log("this data is also saved suscessfully");
+//         yourData(
+//           "secondlast data ",
+//           () => {
+//             console.log("this is also saved suscessfully 'third' ");
+//             yourData(
+//               "finally last",
+//               () => {
+//                 console.log("this is last time i am saving data!!!!");
+//               },
+//               () => {
+//                 console.log(
+//                   "faliure: sorry i am not able to save data this time",
+//                 );
+//               },
+//             );
+//           },
+//           () => {
+//             console.log("faliure not possible to save");
+//           },
+//         );
+//       },
+//       () => {
+//         console.log("sorry internet speed is not sufficeant!!!!");
+//       },
+//     );
+//   },
+//   () => {
+//     console.log("weak connection data not save!!");
+//   },
+// );
+
+function saveData(data, suscess, faliure) {
   let internetSpeed = Math.floor(Math.random() * 10) + 1;
 
-  if (internetSpeed >= 5) {
+  if (internetSpeed > 5) {
     suscess();
   } else {
     faliure();
   }
 }
 
-yourData(
+saveData(
   "naman pandey",
   () => {
-    console.log("data was saved");
-    yourData(
-      "i am saved in data base",
-      () => {
-        console.log("this data is also saved suscessfully");
-        yourData(
-          "secondlast data ",
-          () => {
-            console.log("this is also saved suscessfully 'third' ");
-            yourData(
-              "finally last",
-              () => {
-                console.log("this is last time i am saving data!!!!");
-              },
-              () => {
-                console.log(
-                  "faliure: sorry i am not able to save data this time",
-                );
-              },
-            );
-          },
-          () => {
-            console.log("faliure not possible to save");
-          },
-        );
-      },
-      () => {
-        console.log("sorry internet speed is not sufficeant!!!!");
-      },
-    );
+    (console.log("suscess: the data was saved"),
+      saveData(
+        "Naman 2",
+        () => {
+          console.log("suscess: the data was saved again");
+          saveData(
+            "Naman 3",
+            () => {
+              console.log("suscess: the data was saved again 2");
+            },
+            () => {
+              console.log("Faliure: the data was not saved 2");
+            },
+          );
+        },
+        () => {
+          console.log("faliure: the data was not saved");
+        },
+      ));
   },
   () => {
-    console.log("weak connection data not save!!");
+    console.log("faliure: Data not saved");
   },
 );
