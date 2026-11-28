@@ -67,7 +67,7 @@
 //   setTimeout(()=>{
 //     h1.style.color = "orange"
 //   }, 2000)
-    
+
 //   setTimeout(()=>{
 //     h1.style.color = "green"
 //   }, 3000)
@@ -79,27 +79,59 @@
 // }
 // console.log("naman pandey")
 
-
 // call-back hell ---------------------------------->
 
-let h1 = document.querySelector("h1")
+let h1 = document.querySelector("h1");
 
-function changeColor(color, deley, nextColour){
-     setTimeout(()=>{
-      h1.style.color = color;
-      if(nextColour) nextColour();
-     }, deley)
+function changeColor(color, deley, nextColour) {
+  setTimeout(() => {
+    h1.style.color = color;
+    if (nextColour) nextColour();
+  }, deley);
 }
-i = 0
-while(i<100){
-changeColor("red", 1000, ()=>{
-  changeColor("green", 1000, ()=>{
-    changeColor("yellow", 1000, ()=>{
-      changeColor("blue", 1000, ()=>{
-        changeColor("pink", 1000)
+let i = 0;
+while (i < 100) {
+  changeColor("red", 1000, () => {
+    changeColor("green", 1000, () => {
+      changeColor("yellow", 1000, () => {
+        changeColor("blue", 1000, () => {
+          changeColor("pink", 1000);
+        });
       });
     });
   });
-});
-i++
+  i++;
 }
+
+for (let i = 0; i < 10; i++) {
+  console.log("hello");
+}
+
+function yourData(data, suscess, faliure) {
+  let internetSpeed = Math.floor(Math.random() * 10) + 1;
+
+  if (internetSpeed >= 5) {
+    suscess();
+  } else {
+    faliure();
+  }
+}
+
+yourData(
+  "naman pandey",
+  () => {
+    console.log("data was saved");
+    yourData(
+      "i am saved in data base",
+      () => {
+        console.log("this data is also saved suscessfully");
+      },
+      () => {
+        console.log("sorry internet speed is not sufficeant!!!!");
+      },
+    );
+  },
+  () => {
+    console.log("weak connection data not save!!");
+  },
+);
