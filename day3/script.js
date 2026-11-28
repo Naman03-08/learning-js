@@ -78,3 +78,28 @@
 //   i++
 // }
 // console.log("naman pandey")
+
+
+// call-back hell ---------------------------------->
+
+let h1 = document.querySelector("h1")
+
+function changeColor(color, deley, nextColour){
+     setTimeout(()=>{
+      h1.style.color = color;
+      if(nextColour) nextColour();
+     }, deley)
+}
+i = 0
+while(i<100){
+changeColor("red", 1000, ()=>{
+  changeColor("green", 1000, ()=>{
+    changeColor("yellow", 1000, ()=>{
+      changeColor("blue", 1000, ()=>{
+        changeColor("pink", 1000)
+      });
+    });
+  });
+});
+i++
+}
